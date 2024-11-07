@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Profile Image -->
+    <div class="profile-image">
+        GM
+    </div>
+    <!-- Sidebar which collapses-->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-balance-scale"></i>
+            Legal Chatbot
+        </div>
+        <ul class="menu">
+            <a href="screens/contract_review.html">
+                <li>
+                    <i class="fas fa-file-contract"></i>
+                    Contract Review
+                </li>
+            </a>
+            <a href="screens/compliance_check.html">
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    Compliance Check
+                </li>
+            </a>
+            <a href="screens/risk_management.html">
+                <li>
+                    <i class="fas fa-shield-alt"></i>
+                    Risk Management
+                </li>
+            </a>
+            <a href="screens/document_generation.html">
+                <li>
+                    <i class="fas fa-file-alt"></i>
+                    Document Generation
+                </li>
+            </a>
+            <a href="screens/saved_documents.html">
+                <li>
+                    <i class="fas fa-folder-open"></i>
+                    Saved Documents
+                </li>
+            </a>
+            <a href="screens/saved_chats.html">
+                <li>
+                    <i class="fa-regular fa-comment-dots"></i>
+                    Saved Chats
+                </li>
+            </a>
+        </ul>
+
+        <ul class="bottom-menu">
+            <a href="screens/settings.html">
+                <li>
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </li>
+            </a>
+            <a href="screens/support.html">
+                <li>
+                    <i class="fa-regular fa-circle-question"></i>
+                    Support
+                </li>
+            </a>
+            <a href="screens/feedback.html">
+                <li>
+                    <i class="fa-regular fa-message"></i>
+                    Feedback
+                </li>
+            </a>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <iframe src="screens/home.html" style="position: absolute; left: 300px; top: 0; width: calc(100% - 300px); height: 100%; border: none;"></iframe>
+
+    <script>
+        document.querySelectorAll('.menu a, .bottom-menu a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelector('iframe').src = this.getAttribute('href');
+            });
+        });
+    </script>
+</body>
+
+</html>

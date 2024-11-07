@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance check</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="compliance_check.css">
+</head>
+<body>
+    <input type="text" class="chatbox" placeholder="Enter your legal mystery, and I'll be your detective...      ">
+
+    <!-- Main Body -->
+    <div class="container">
+        <h1>
+            Compliance check
+         </h1>
+    </div>
+
+</body>
+
+<!-- Script to animate the placeholder -->
+<script>
+    const input = document.querySelector('.chatbox');
+    const placeholder = input.getAttribute('placeholder');
+    let i = 0;
+    let text = '';
+    const type = () => {
+        text += placeholder[i];
+        input.setAttribute('placeholder', text);
+        i++;
+        if (i === placeholder.length) {
+            i = 0;
+            text = '';
+        }
+    }
+    setInterval(type, 100);
+</script>
+
+
+</html>

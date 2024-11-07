@@ -1,0 +1,120 @@
+body{
+    height: 100lvh;
+    margin: 0;
+    padding: 10px;
+    width: 100vw;
+    font: 16px/1.5 Arial, sans-serif;
+    background-color: rgb(37, 36, 37);
+    color: white;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgb(27, 26, 27);
+    color: white;
+}
+
+.sidebar li{
+    color: white;
+    text-decoration: none;
+    background-color: rgb(44, 44, 44);
+    display: block;
+    padding: 10px;
+    list-style-type: none;
+    transition: 0.3s;
+    margin-bottom: 1px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    width: 100%;
+}
+
+a li{
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar a li:hover{
+    background-color: rgb(125, 228, 223);
+    color: black;
+    text-decoration: none;
+}
+
+.menu{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.bottom-menu{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    color: white;
+}
+
+.bottom-menu li{
+    background-color: rgb(27, 26, 27)
+}
+
+
+
+.logo{
+    color: rgb(125, 228, 223);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+i{
+    margin-right: 30px;
+}
+
+
+.profile-image{
+    position: absolute;
+    /* top right with a gap from screen of 30px */
+    top: 30px;
+    right: 30px;
+    /* 100px width and height */
+    width: 50px;
+    height: 50px;
+
+    /* Position at the top */
+    z-index: 1000;
+    
+    /* border radius of 50% to make it a circle */
+    border-radius: 50%;
+    /* border of 2px solid white */
+    border: 2px solid white;
+    /* Center text inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Pointer select */
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.profile-image:hover{
+    /* Change border color to black */
+    border: 2px solid transparent;
+    /* Change background color */
+    background-color: rgb(125, 228, 223);
+    /* Change text color to black */
+    color: black;
+}
