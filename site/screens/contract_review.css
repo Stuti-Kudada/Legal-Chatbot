@@ -43,6 +43,15 @@ body{
 
 }
 
+
+.container p{
+    /* Style */
+    font-size: 16px;
+    color: white;
+    opacity: 0.7;
+    font-family: sans-serif;
+}
+
 .chat-holder{
     top: 100px;
     padding-right: 30px;

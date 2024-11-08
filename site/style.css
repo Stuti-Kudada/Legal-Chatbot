@@ -40,9 +40,14 @@ a li{
     color: white;
 }
 
-.sidebar a li:hover{
+.menu a li:hover{
     background-color: rgb(125, 228, 223);
     color: black;
+    text-decoration: none;
+}
+
+.bottom-menu a li:hover{
+    color: rgb(125, 228, 223);
     text-decoration: none;
 }
 

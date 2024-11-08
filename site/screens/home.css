@@ -1,28 +1,106 @@
 body{
+    color:white;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    height: 100vh;
+}
+
+.chatbox{
+    /* Input box for chat */
+    position: fixed;
+    /* Bottom with 100% width */
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
-}
+    height: 50px;
 
-h1{
-    font-size: 2em;
-    text-align: center;
-    margin-top: 50px;
-}
+    background-color: black;
+    padding: 10px;
+    padding-left: 20px;
 
-.center-display{
+    /* Text */
     color: white;
-    max-width: 600px;
+    font-size: 16px;
+}
+
+.container{
+    /* Container for the chat */
+    position: absolute;
+    /* Top with 100% width */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+
+    /* Padding */
+    padding-top: 20px;
+    padding-left: 20px;
+
+    /* Overflow disabled */
+    overflow-y: auto;
+
+    /* disable X overflow */
+    overflow-x: hidden;
+
+}
+
+.container p{
+    /* Style */
+    font-size: 16px;
+    color: white;
+    opacity: 0.7;
+    font-family: sans-serif;
+}
+
+.title {
+    /* Style */
+    font-size: 24px;
+    color: white;
+    font-family: sans-serif;
+}
+
+/* Hide the welcome message when a message is entered */
+.chatbox input:focus ~ .welcome-message {
+    display: none;
+}
+.chat-holder{
+    top: 100px;
+    padding-right: 30px;
+}
+
+.chat-ai .chat-text {
+    /* Chat text */
+    background-color: black;
+    padding: 5px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.chat-me .chat-text {
+    /* Chat text */
+    background-color: rgb(0, 68, 53);
+    padding: 5px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.chat-me{
+    /* Chat */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: row;
+    align-items: right;
 
-    position: relative;
+    /* Align right */
+    justify-content: flex-end;
+}
 
-    margin: 0 auto;
+.chat-ai{
+    /* Chat */
+    display: flex;
+    flex-direction: row;
+    align-items: left;
 
+    /* Align left */
+    justify-content: flex-start;
 }
