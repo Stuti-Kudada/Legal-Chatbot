@@ -1,0 +1,125 @@
+body{
+    color:white;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.profile-image{
+    position: absolute;
+    /* top right with a gap from screen of 30px */
+    top: 30px;
+    right: 30px;
+    /* 100px width and height */
+    width: 50px;
+    height: 50px;
+    /* border radius of 50% to make it a circle */
+    border-radius: 50%;
+    /* border of 2px solid white */
+    border: 2px solid white;
+    /* Center text inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Pointer select */
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.profile-image:hover{
+    /* Change border color to black */
+    border: 2px solid transparent;
+    /* Change background color */
+    background-color: rgb(125, 228, 223);
+    /* Change text color to black */
+    color: black;
+}
+
+.container p{
+    /* Style */
+    font-size: 16px;
+    color: white;
+    opacity: 0.7;
+    font-family: sans-serif;
+}
+
+.chatbox{
+    /* Input box for chat */
+    position: fixed;
+    /* Bottom with 100% width */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+
+    background-color: black;
+    padding: 10px;
+    padding-left: 20px;
+
+    /* Text */
+    color: white;
+    font-size: 16px;
+}
+
+.container{
+    /* Container for the chat */
+    position: absolute;
+    /* Top with 100% width */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+
+    /* Padding */
+    padding-top: 20px;
+    padding-left: 20px;
+
+    bottom: 74px;
+
+    /* Overflow */
+    overflow-y: scroll;
+}
+
+.chat-holder{
+    top: 100px;
+    padding-right: 30px;
+}
+
+.chat-ai .chat-text {
+    /* Chat text */
+    background-color: black;
+    padding: 5px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.chat-me .chat-text {
+    /* Chat text */
+    background-color: rgb(0, 68, 53);
+    padding: 5px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.chat-me{
+    /* Chat */
+    display: flex;
+    flex-direction: row;
+    align-items: right;
+
+    /* Align right */
+    justify-content: flex-end;
+}
+
+.chat-ai{
+    /* Chat */
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+
+    /* Align left */
+    justify-content: flex-start;
+}

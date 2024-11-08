@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance check</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="compliance_check.css">
+</head>
+<body>
+    <input type="text" class="chatbox" placeholder="Enter your legal mystery, and I'll be your detective...      ">
+
+    <!-- Main Body -->
+    <div class="container">
+        <h1>
+            Compliance check
+         </h1>
+         <p>
+            Please enter the details of the compliance check you would like to perform.
+        </p>
+
+         <div class="chat-holder">
+        </div>
+    </div>
+
+</body>
+
+<!-- Script to animate the placeholder -->
+<script>
+
+    // API Call Response
+    let apiCallResponse = (msg) => {
+        return {
+            status: 200,
+            data: {
+                message: 'Hi, I\'m your legal detective. What can I help you with today?'
+            }
+        }
+    }
+    
+    
+    // Placeholder Animation
+    const input = document.querySelector('.chatbox');
+    const placeholder = input.getAttribute('placeholder');
+    let i = 0;
+    let text = '';
+    const type = () => {
+        text += placeholder[i];
+        input.setAttribute('placeholder', text);
+        i++;
+        if (i === placeholder.length) {
+            i = 0;
+            text = '';
+        }
+    }
+    setInterval(type, 100);
+    
+    
+    
+    // Message Handler
+    const myChats = [];
+    const chatbox = document.querySelector('.chatbox');
+
+    chatbox.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            const chatText = chatbox.value;
+            myChats.push({ index: myChats.length + 1, text: chatText, type: 'me' });
+            chatbox.value = '';
+
+            // API Call
+            const response = apiCallResponse(chatText);
+            myChats.push({ index: myChats.length + 1, text: response.data.message, type: 'ai' });
+
+            // Render Chat
+            const chatHolder = document.querySelector('.chat-holder');
+            chatHolder.innerHTML = '';
+            myChats.forEach(chat => {
+                const chatDiv = document.createElement('div');
+                chatDiv.classList.add(`chat-${chat.type}`);
+                const chatText = document.createElement('div');
+                chatText.classList.add('chat-text');
+                chatText.innerHTML = `<p>${chat.text}</p>`;
+                chatDiv.appendChild(chatText);
+                chatHolder.appendChild(chatDiv);
+            });
+
+            // Scroll to bottom
+            chatHolder.scrollTop = chatHolder.scrollHeight;
+        }
+    });
+</script>
+
+
+</html>
