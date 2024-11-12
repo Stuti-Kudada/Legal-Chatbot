@@ -30,10 +30,62 @@
 
     // API Call Response
     let apiCallResponse = (msg) => {
+      let url = "https://api.vultrinference.com/v1/chat/completions/RAG"
+        let collection_name = "legal-data"
+        let model = "zephyr-7b-beta-f16"
+        let body =   {
+        "collection": "ComplianceCenter",
+        "model": model,
+        "messages": [
+            {
+            "role": "user",
+            "content": msg
+            }
+        ],
+        "max_tokens": 2048,
+        "seed": -1,
+        "temperature": 0.8,
+        "top_k": 40,
+        "top_p": 0.9,
+        "stream": false
+        }
+        let apiKey = ''; 
+        fetch('.env')
+            .then(response => response.json())
+            .then(data => {
+            apiKey = data.API_KEY;
+            })
+            .catch(error => {
+            console.error('Error fetching API key:', error);
+            });
+        fetch(url, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(data => {
+             let  responsemsg = data.choices[0].message.content
+            return  {
+            status: response.status,
+            data: responsemsg
+        }})
+        .catch(error => {
+            console.error('Error:', error);
+            return {
+            status: 200,
+            data: {
+                message: 'An error occurred. Please try again later.'
+            }
+            };
+        });
         return {
             status: 200,
             data: {
-                message: 'Hi, I\'m your legal detective. What can I help you with today?'
+                message: 'I am sorry, I could not understand your query. Please try again.'
             }
         }
     }
